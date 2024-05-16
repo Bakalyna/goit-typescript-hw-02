@@ -1,4 +1,4 @@
-import Modal from 'react-modal';
+import Modal from "react-modal";
 import { ImgData } from '../types';
 import {FC} from "react"
 

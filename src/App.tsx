@@ -13,10 +13,10 @@ const App:FC=()=> {
   const [query, setQuery] = useState<string>('');
   const [gallery, setGallery] = useState<ImgData[]>([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const [showloader, setShowLoader] = useState<boolean>(false);
+  const [showLoader, setShowLoader] = useState<boolean>(false);
   const [showError, setShowError] = useState<boolean>(false);
   const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
-  const [modalImg, setModalImg] = useState<ImgData|(null)>(null);
+  const [modalImg, setModalImg] = useState<ImgData|null>(null);
 
   const loadMore = ():void => {
     setCurrentPage(currentPage + 1);
@@ -59,11 +59,11 @@ const App:FC=()=> {
   return (
     <>
       <SearchBar handleSubmit={handleSubmit} />
-      {showloader && <Loader />}
+      {showLoader && <Loader />}
       {!showError && <ImageGallery gallery={gallery} openModal={openModal} />}
       {showError && <ErrorMessage />}
       {visibleLoadMore && <LoadMoreBtn loadMore={loadMore} />}
-      {modalIsOpen && (
+      {modalIsOpen && modalImg && (
         <ImageModal
           modalIsOpen={modalIsOpen}
           closeModal={closeModal}
